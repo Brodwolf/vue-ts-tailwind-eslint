@@ -8,10 +8,23 @@
 
 <script lang="ts">
 import { Vue } from 'vue-class-component'
+import { useExampleApi } from '@/service/ExampleApi'
 
 export default class HomeView extends Vue {
-  public pushLink () {
-    this.$router.push('/')
+  /**
+   * onMountView
+   */
+  public async mounted () {
+    this.callApiExample()
+  }
+
+  /**
+   * Call API example
+   */
+  public async callApiExample () {
+    const exampleApi = useExampleApi()
+    const response = await exampleApi.callGet('/api/workspace/list')
+    console.log(response.data)
   }
 }
 </script>
