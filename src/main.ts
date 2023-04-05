@@ -4,7 +4,7 @@ import './registerServiceWorker'
 import Vue3Progress from 'vue3-progress'
 
 import store from './store'
-import router from './router'
+import router from './router/router'
 import App from './App.vue'
 
 createApp(App)
