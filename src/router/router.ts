@@ -4,9 +4,14 @@ import PageStructure from '../views/PageStructure.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'page-structu',
+    name: 'page-structure',
     component: PageStructure,
     children: [
+      {
+        path: '/users',
+        name: 'user',
+        component: () => import('@/views/users/UsersView.vue')
+      },
       {
         path: '/dashboard',
         name: 'dashboard',
@@ -14,8 +19,8 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: '/',
-        name: 'home',
-        component: () => import('@/views/HomeView.vue')
+        name: 'default',
+        redirect: '/dashboard'
       }
     ]
   }

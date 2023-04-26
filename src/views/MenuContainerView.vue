@@ -1,22 +1,20 @@
 <template>
   <div class="flex h-screen w-screen">
     <SideMenu>
-      <router-view/>
+      <router-view />
     </SideMenu>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component'
-import { useExampleApi } from '@/service/ExampleApi'
-import SideMenu from '@/components/SideMenu/SideMenu.vue'
+import { Vue, Options } from "vue-class-component";
+import SideMenu from "@/components/SideMenu/SideMenu.vue";
 
 @Options({
   components: {
-    SideMenu
-  }
+    SideMenu,
+  },
 })
-
 export default class MenuContainerView extends Vue {
   /**
    * Call API example

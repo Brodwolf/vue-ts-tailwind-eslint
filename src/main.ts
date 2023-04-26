@@ -3,7 +3,8 @@ import { createApp } from 'vue'
 import './registerServiceWorker'
 import Vue3Progress from 'vue3-progress'
 
-import store from './store'
+
+import store from './store/Store'
 import router from './router/router'
 import App from './App.vue'
 

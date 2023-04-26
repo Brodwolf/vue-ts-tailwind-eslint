@@ -1,63 +1,26 @@
 <template>
   <main class="flex w-full h-full">
     <div
-      :class="`flex flex-col justify-between h-full bg-black duration-500 transition-all ${
-        isOpen ? 'w-52' : 'w-20'
-      }`"
+      class="md:flex flex-col hidden justify-between h-full bg-black duration-500 transition-all w-60"
     >
       <div>
-        <div class="w-full items-center justify-center py-5">
-          <a class="flex w-full items-center justify-center" href="#">
-            <svg
-              class="w-8 h-8 fill-current text-gray-300"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"
-              />
-            </svg>
-          </a>
+        <div class="w-full flex items-center justify-center space-x-3 py-10">
+          <img class="w-max px-5 select-none" src="../../assets/01.png" />
         </div>
 
-        <div class="w-full px-2">
+        <div class="w-full px-1">
           <div
-            class="flex flex-col w-full items-center justify-center py-4 border-y border-gray-700 space-y-4"
-          >
-            <a
-              class="flex items-center justify-center w-full h-10 px-3 cursor-pointer text-gray-300 hover:bg-gray-700"
-              @click="setOpen(!isOpen)"
-            >
-              <ChevronLeftIcon
-                :class="`w-6 h-6 duration-500 transition-all ${
-                  !isOpen && 'rotate-180'
-                }`"
-              />
-            </a>
-            <a
-              class="flex items-center justify-center w-full h-10 px-3 cursor-pointer text-gray-300 hover:bg-gray-700"
-            >
-              <HomeIcon
-                class="w-6 h-6 duration-500 transition-all"
-                @click="goHome()"
-              />
-            </a>
-          </div>
-          <div
-            class="flex flex-col items-center w-full space-y-2 text-gray-300"
+            class="flex flex-colitems-center w-full text-gray-300"
             v-for="(menu, index) in MenuItems"
             @click="onClickMenu(menu)"
             :key="index"
           >
             <a
-              :class="`flex items-center w-full h-12 px-3 mt-2 cursor-pointer hover:bg-gray-700 hover:text-gray-300 space-x-3
-              ${isActive(menu) ? 'border-l border-gray-300' : ''}`"
+              :class="`flex items-center w-full px-3 my-1 py-2 cursor-pointer hover:bg-gray-700 hover:text-gray-300 space-x-5
+              ${isActive(menu) ? 'border-l-2 border-[#8B13F4]' : ''}`"
             >
-              <component :is="menu.icon" class="w-6 h-6 flex-shrink-0 ml-2" />
-              <span class="ml-2 text-sm font-normal overflow-hidden">{{
-                menu.title
-              }}</span>
+              <component :is="menu.icon" class="w-5 h-5 flex-shrink-0 ml-6" />
+              <span class="ml-2 text-sm font-normal">{{ menu.title }}</span>
             </a>
           </div>
         </div>
@@ -66,9 +29,9 @@
       <div class="w-full px-2 py-2 border-t border-gray-700">
         <div class="flex flex-col items-center w-full space-y-2 text-gray-300">
           <a
-            class="flex items-center w-full h-12 px-3 mt-2 cursor-pointer hover:text-gray-500 space-x-3"
+            class="flex items-center w-full px-3 my-1 py-2 cursor-pointer hover:bg-gray-700 hover:text-gray-300 space-x-5"
           >
-            <ArrowLeftOnRectangleIcon class="w-6 h-6 flex-shrink-0 ml-2" />
+            <LogOut class="w-4 h-4 flex-shrink-0 ml-5" />
             <span class="ml-2 text-sm font-normal overflow-hidden"
               >Desconectar</span
             >
@@ -78,7 +41,7 @@
     </div>
 
     <div class="flex flex-col w-full h-full">
-      <Navbar />
+      <Navbar :title="title" />
       <slot></slot>
     </div>
   </main>
@@ -86,33 +49,19 @@
   
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { LogOut } from "lucide-vue-next";
 import Navbar from "../Navbar/Navbar.vue";
 import SideMenuItems from "@/utils/SideMenuItems";
 import type SideMenuItem from "@/interfaces/SideMenuItem";
-import {
-  Bars3Icon,
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
-  BellIcon,
-  HomeIcon,
-  ChevronLeftIcon,
-  ArrowLeftOnRectangleIcon,
-} from "@heroicons/vue/24/outline";
 
 @Options({
   components: {
     Navbar,
-    HomeIcon,
-    ChevronLeftIcon,
-    Bars3Icon,
-    BellIcon,
-    ChevronDownIcon,
-    MagnifyingGlassIcon,
-    ArrowLeftOnRectangleIcon,
+    LogOut,
   },
 })
 export default class SideMenu extends Vue {
-  public isOpen = false;
+  public title = "Dashboard";
 
   /**
    * Retorna os itens do Menu
@@ -129,24 +78,11 @@ export default class SideMenu extends Vue {
   }
 
   /**
-   * Disparado ao clicar para abrir/fechar a sidebar
-   */
-  public setOpen(value: boolean) {
-    this.isOpen = value;
-  }
-
-  /**
    * Disparado ao clicar em um item do menu
    */
   public onClickMenu(menu: SideMenuItem) {
+    this.title = menu.title;
     this.$router.push(menu.link);
-  }
-
-  /**
-   * Disparado ao clicar em home
-   */
-  public goHome() {
-    this.$router.push("/");
   }
 }
 </script>

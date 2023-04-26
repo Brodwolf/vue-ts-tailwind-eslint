@@ -1,25 +1,35 @@
 import type SideMenuItem from '@/interfaces/SideMenuItem'
-import { RectangleGroupIcon, UserGroupIcon, Cog6ToothIcon, LockClosedIcon } from '@heroicons/vue/24/outline'
+import { Home, LayoutDashboard, UsersIcon, UserCog, FileText, Banknote, CogIcon, LockIcon } from 'lucide-vue-next'
 
 const items: SideMenuItem[] = [
   {
     title: 'Dashboard',
-    icon: RectangleGroupIcon,
+    icon: LayoutDashboard,
     link: '/dashboard'
   },
   {
     title: 'Clientes',
-    icon: UserGroupIcon,
-    link: '/components'
+    icon: UsersIcon,
+    link: '/dashboard1'
   },
   {
-    title: 'Configurações',
-    icon: Cog6ToothIcon,
-    link: '/components'
+    title: 'Usuarios',
+    icon: UserCog,
+    link: '/users'
+  },
+  {
+    title: 'Relatórios',
+    icon: FileText,
+    link: '/dashboard1'
+  },
+  {
+    title: 'Financeiro',
+    icon: Banknote,
+    link: '/dashboard3'
   },
   {
     title: 'Login',
-    icon: LockClosedIcon,
+    icon: LockIcon,
     link: '/login'
   }
 ]

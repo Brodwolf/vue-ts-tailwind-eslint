@@ -1021,11 +1021,6 @@
   resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.7.12.tgz#963b2eb2f548278c49f2d1e67f0a4a84f54078da"
   integrity sha512-IV0k1I2I8Bj37HljFF231Y9cpldfiucf+inMCxA/VPoQT6UTxo0N/rb78CrogBxXNfsPxKmz3y/nlv+eRz6zvg==
 
-"@heroicons/vue@^2.0.17":
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/@heroicons/vue/-/vue-2.0.17.tgz#4c23f26a715c2931c0d4fd5d2e77f8ede7a6a77b"
-  integrity sha512-M5P6Y9tmctbtv/IC1dO5vTw9xqppYxm/5BKuL4hGlxxLvaxbnTmMAoxTIzezSdYAaLh63emgOCBMa+mxphRxUQ==
-
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
@@ -4843,6 +4838,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+lucide-vue-next@^0.166.0:
+  version "0.166.0"
+  resolved "https://registry.yarnpkg.com/lucide-vue-next/-/lucide-vue-next-0.166.0.tgz#3e6ce0ba6513bb6bcecd044799a1b986a54ad47f"
+  integrity sha512-I1OAQOCQBb6tQMSMmStkHAEoFCsVaHhsZphAZ7aIUunGwvyVJtb6RNz/1JEtERktqq51jNAR3xkZPljgl6gysw==
+
 magic-string@^0.25.0, magic-string@^0.25.7:
   version "0.25.9"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.9.tgz#de7f9faf91ef8a1c91d02c2e5314c8277dbcdd1c"
@@ -6979,7 +6979,12 @@ vue@^3.2.13:
     "@vue/server-renderer" "3.2.47"
     "@vue/shared" "3.2.47"
 
-vuex@^4.0.0:
+vuex-class-modules@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/vuex-class-modules/-/vuex-class-modules-1.3.0.tgz#b2d3bfb8b70577b17fbdf2cce2cf0308e54d75fd"
+  integrity sha512-WH+BwOgJHN0g2pzHdy7pDOLItdEAxm5z8VNEUYDBD3L7UPWoL7NptATczUiP66mBY8rIM25eN7lNCzz66Cg2QQ==
+
+vuex@^4.0.2:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-4.1.0.tgz#aa1b3ea5c7385812b074c86faeeec2217872e36c"
   integrity sha512-hmV6UerDrPcgbSy9ORAtNXDr9M4wlNP4pEFKye4ujJF8oqgFFuxDCdOLS3eNoRTtq5O3hoBDh9Doj1bQMYHRbQ==
